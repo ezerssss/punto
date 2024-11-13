@@ -1,7 +1,8 @@
-import React from "react";
+import ProtectedRouteWrapper from '@/components/ProtectedRouteWrapper';
+import React from 'react';
 
 function Home() {
-    return <div>Home</div>;
+    return <ProtectedRouteWrapper>Home</ProtectedRouteWrapper>;
 }
 
 export default Home;
