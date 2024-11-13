@@ -18,7 +18,7 @@ function useLogin(callback?: () => void) {
             const log = await analytics;
 
             if (log) {
-                logEvent(log, 'login');
+                logEvent(log, 'business-portal:login');
             }
 
             setIsLoading(true);
