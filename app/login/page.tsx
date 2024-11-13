@@ -87,7 +87,11 @@ function LoginPage() {
                                     )}
                                 />
                             </div>
-                            <Button type="submit" className="mt-8">
+                            <Button
+                                disabled={isLoading}
+                                type="submit"
+                                className="mt-8"
+                            >
                                 {isLoading ? (
                                     <Loader2Icon className="animate-spin" />
                                 ) : (
