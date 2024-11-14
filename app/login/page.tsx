@@ -62,8 +62,8 @@ function Content() {
                                             <FormLabel>Email</FormLabel>
                                             <FormControl>
                                                 <Input
-                                                    placeholder="Input email"
                                                     type="email"
+                                                    placeholder="Input email"
                                                     {...field}
                                                 />
                                             </FormControl>
