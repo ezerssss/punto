@@ -34,9 +34,9 @@ function ProtectedRouteWrapper(props: PropsInterface) {
 
                 if (!tokens.claims.is_business_account) {
                     setIsAuthenticated(false);
+                } else {
+                    setIsAuthenticated(true);
                 }
-
-                setIsAuthenticated(true);
             }
 
             setIsLoading(false);
