@@ -63,6 +63,7 @@ function Content() {
                                             <FormControl>
                                                 <Input
                                                     placeholder="Input email"
+                                                    type="email"
                                                     {...field}
                                                 />
                                             </FormControl>
