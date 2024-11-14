@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const BusinessUserDataSchema = z.object({
-    business_id: z.string().uuid().min(1),
+    business_id: z.string().min(1),
     email: z.string().email(),
     business_name: z.string().min(1),
     photo_url: z.string().url().nullable(),

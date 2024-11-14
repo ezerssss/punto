@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 export const ItemSchema = z.object({
     item_name: z.string().min(1),
@@ -10,10 +10,10 @@ export const ItemSchema = z.object({
 export type ItemType = z.infer<typeof ItemSchema>;
 
 export const TransactionSchema = z.object({
-    transaction_id: z.string().uuid().min(1),
-    customer_id: z.string().uuid().min(1),
-    business_id: z.string().uuid().min(1),
-    employee_id: z.string().uuid().min(1),
+    transaction_id: z.string().min(1),
+    customer_id: z.string().min(1),
+    business_id: z.string().min(1),
+    employee_id: z.string().min(1),
     items: ItemSchema.array().min(1),
     total_price: z.number().nonnegative(),
     points: z.number().nonnegative(),
