@@ -23,8 +23,9 @@ import {
 import useLogin from '../hooks/useLogin';
 import { Loader2Icon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { Suspense } from 'react';
 
-function LoginPage() {
+function Content() {
     const router = useRouter();
     const { isLoading, logIn } = useLogin(() => router.push('/'));
 
@@ -103,6 +104,15 @@ function LoginPage() {
                 </CardContent>
             </Card>
         </main>
+    );
+}
+
+// NEXTJS SHENANIGANS KILL ME
+function LoginPage() {
+    return (
+        <Suspense>
+            <Content />
+        </Suspense>
     );
 }
 
