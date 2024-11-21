@@ -4,9 +4,8 @@ export const PointSchema = z.object({
     points_id: z.string().min(1),
     customer_id: z.string().min(1),
     business_id: z.string().min(1),
-    employee_id: z.string().min(1),
-    current_points: z.number().nonnegative(), // points without considering pending payout
-    available_points: z.number().nonnegative(), // points considering pending payout
+    current_points: z.number().nonnegative(), // points without considering pending stuff
+    available_points: z.number().nonnegative(), // points considering pending stuff
 });
 
 export type PointType = z.infer<typeof PointSchema>;
