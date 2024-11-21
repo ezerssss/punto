@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 function Header() {
     return (
-        <header className="px-10 py-5">
+        <header className="p-2">
             <Link href="/">
                 <h2 className="text-3xl font-bold">Punto</h2>
             </Link>

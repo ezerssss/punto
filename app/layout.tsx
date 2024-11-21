@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from '@/components/Header';
 import { Toaster } from '@/components/ui/sonner';
+import { Sora, Nunito } from 'next/font/google';
+
+const sora = Sora({ subsets: ['latin'] });
+const nunito = Nunito({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: 'Punto',
@@ -15,13 +18,8 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body>
-                <Header />
-
-                <div className='className="px-5 xl:px-20" py-10 md:px-10 lg:px-16'>
-                    {children}
-                </div>
-
+            <body className={`${sora.className} ${nunito.className}`}>
+                {children}
                 <Toaster richColors />
             </body>
         </html>
