@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { BusinessPublicDataSchema, CustomerPublicDataSchema } from './user';
 
 export const PointSchema = z.object({
     points_id: z.string().min(1),
@@ -6,6 +7,8 @@ export const PointSchema = z.object({
     business_id: z.string().min(1),
     current_points: z.number().nonnegative(), // points without considering pending stuff
     available_points: z.number().nonnegative(), // points considering pending stuff
+    business: BusinessPublicDataSchema,
+    customer: CustomerPublicDataSchema,
 });
 
 export type PointType = z.infer<typeof PointSchema>;
