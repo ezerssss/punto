@@ -1,5 +1,6 @@
 import { z } from 'zod';
-import { BusinessPublicDataSchema, CustomerPublicDataSchema } from './user';
+import { BusinessPublicDataSchema } from './user/business';
+import { CustomerPublicDataSchema } from './user/customer';
 
 export const PointSchema = z.object({
     points_id: z.string().min(1),

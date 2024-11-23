@@ -1,10 +1,8 @@
 import { z } from 'zod';
 import { ValidReceiptSchema } from './receipt';
-import {
-    BusinessPublicDataSchema,
-    EmployeePublicDataSchema,
-    CustomerPublicDataSchema,
-} from './user';
+import { BusinessPublicDataSchema } from './user/business';
+import { CustomerPublicDataSchema } from './user/customer';
+import { EmployeePublicDataSchema } from './user/employee';
 
 export const TransactionSchema = z.object({
     transaction_id: z.string().min(1),
