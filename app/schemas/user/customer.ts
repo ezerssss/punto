@@ -4,8 +4,7 @@ import parsePhoneNumberFromString from 'libphonenumber-js';
 
 export const CustomerUserDataSchema = z.object({
     customer_id: z.string().min(1),
-    is_email_verified: z.boolean(),
-    is_phone_verified: z.boolean(),
+    is_verified: z.boolean(),
     email: z.string().email(),
     full_name: z.string().min(1),
     age: z.number().positive(),
@@ -34,8 +33,7 @@ export type CustomerUserDataType = z.infer<typeof CustomerUserDataSchema>;
 
 export const CustomerPublicDataSchema = CustomerUserDataSchema.omit({
     customer_id: true,
-    is_email_verified: true,
-    is_phone_verified: true,
+    is_verified: true,
     email: true,
     phone_number: true,
     qr_scan_session: true,
@@ -46,8 +44,7 @@ export type CustomerPublicDataType = z.infer<typeof CustomerPublicDataSchema>;
 
 export const CustomerSignUpSchema = CustomerUserDataSchema.omit({
     customer_id: true,
-    is_email_verified: true,
-    is_phone_verified: true,
+    is_verified: true,
     qr_scan_session: true,
     date_created: true,
 }).extend({ password: z.string().min(6) });
