@@ -1,9 +1,28 @@
 import { z } from 'zod';
 
+export const BusinessCategoryEnum = z.enum([
+    'Retail and Wholesale',
+    'Food and Drink',
+    'Manufacturing and Production',
+    'Professional Services',
+    'Construction and Home Improvement',
+    'Healthcare and Wellness',
+    'Education and Training',
+    'Technology and Digital Services',
+    'Creative and Entertainment',
+    'Transportation and Logistics',
+    'Real Estate and Property Management',
+    'Agriculture and Agribusiness',
+    'Tourism and Hospitality',
+    'Personal and Lifestyle Services',
+    'Automotive',
+]);
+
 export const BusinessUserDataSchema = z.object({
     business_id: z.string().min(1),
     email: z.string().email(),
     business_name: z.string().min(1),
+    business_category: BusinessCategoryEnum,
     photo_url: z.string().url().nullable(),
     points_per_peso: z.number().nonnegative(),
     date_created: z.string().datetime(),
