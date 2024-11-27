@@ -24,6 +24,7 @@ export const BusinessUserDataSchema = z.object({
     business_name: z.string().min(1),
     business_category: BusinessCategoryEnum,
     photo_url: z.string().url().nullable(),
+    minimum_points_payout: z.number().nonnegative(),
     points_per_peso: z.number().nonnegative(),
     date_created: z.string().datetime(),
 });
