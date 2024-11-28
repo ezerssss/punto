@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { BusinessPublicDataSchema } from './user/business';
 import { CustomerPublicDataSchema } from './user/customer';
+import { Timestamp } from 'firebase/firestore';
 
 export const PointSchema = z.object({
     points_id: z.string().min(1),
@@ -17,7 +18,7 @@ export type PointType = z.infer<typeof PointSchema>;
 export const EarnHistorySchema = z.object({
     transaction_id: z.string().min(1),
     points_earned: z.number().positive(),
-    timestamp: z.string().datetime(),
+    timestamp: z.instanceof(Timestamp),
 });
 
 export type EarnHistoryType = z.infer<typeof EarnHistorySchema>;

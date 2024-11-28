@@ -1,3 +1,4 @@
+import { Timestamp } from 'firebase/firestore';
 import { z } from 'zod';
 
 export const BusinessCategoryEnum = z.enum([
@@ -26,7 +27,7 @@ export const BusinessUserDataSchema = z.object({
     photo_url: z.string().url().nullable(),
     minimum_points_payout: z.number().nonnegative(),
     points_per_peso: z.number().nonnegative(),
-    date_created: z.string().datetime(),
+    date_created: z.instanceof(Timestamp),
 });
 
 export type BusinessUserDataType = z.infer<typeof BusinessUserDataSchema>;

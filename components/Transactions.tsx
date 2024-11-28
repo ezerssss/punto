@@ -38,7 +38,7 @@ function Transactions() {
                         points,
                         receipt_photo_url,
                     } = transaction;
-                    const date = new Date(timestamp);
+                    const date = timestamp.toDate();
                     return (
                         <Card key={transaction_id}>
                             <CardHeader>

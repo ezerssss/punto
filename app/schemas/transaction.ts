@@ -3,6 +3,7 @@ import { ValidReceiptSchema } from './receipt';
 import { BusinessPublicDataSchema } from './user/business';
 import { CustomerPublicDataSchema } from './user/customer';
 import { EmployeePublicDataSchema } from './user/employee';
+import { Timestamp } from 'firebase/firestore';
 
 export const TransactionSchema = z.object({
     transaction_id: z.string().min(1),
@@ -16,7 +17,7 @@ export const TransactionSchema = z.object({
     business: BusinessPublicDataSchema,
     employee: EmployeePublicDataSchema,
     customer: CustomerPublicDataSchema,
-    timestamp: z.string().datetime(),
+    timestamp: z.instanceof(Timestamp),
 });
 
 export type TransactionType = z.infer<typeof TransactionSchema>;

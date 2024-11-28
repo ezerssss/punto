@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { QRScanSessionSchema } from '../qr-scan-session';
 import parsePhoneNumberFromString from 'libphonenumber-js';
+import { Timestamp } from 'firebase/firestore';
 
 export const CustomerUserDataSchema = z.object({
     customer_id: z.string().min(1),
@@ -26,7 +27,7 @@ export const CustomerUserDataSchema = z.object({
     }),
     photo_url: z.string().url().nullable(),
     qr_scan_session: QRScanSessionSchema.nullable(), // null if no session
-    date_created: z.string().datetime(),
+    date_created: z.instanceof(Timestamp),
 });
 
 export type CustomerUserDataType = z.infer<typeof CustomerUserDataSchema>;

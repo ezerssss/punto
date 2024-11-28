@@ -1,3 +1,4 @@
+import { Timestamp } from 'firebase/firestore';
 import { z } from 'zod';
 
 export const EmployeeUserDataSchema = z.object({
@@ -6,7 +7,7 @@ export const EmployeeUserDataSchema = z.object({
     employee_name: z.string().min(1),
     username: z.string().min(1),
     password: z.string().min(6), // hashed using bcrypt
-    date_created: z.string().datetime(),
+    date_created: z.instanceof(Timestamp),
 });
 
 export type EmployeeUserDataType = z.infer<typeof EmployeeUserDataSchema>;
