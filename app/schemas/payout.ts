@@ -16,16 +16,16 @@ export const PayoutSchema = z.object({
     business_id: z.string().min(1),
     points_to_redeem: z.number().positive(),
     status: PayoutStatusEnum,
+    // I don't know pang pa ready lang for other banks and qr??
+    destination_account: z.union([z.number(), z.string().min(1)]),
     timestamp: z.instanceof(Timestamp),
 });
 
 export type PayoutType = z.infer<typeof PayoutSchema>;
 
-export const PayoutHistorySchema = z.object({
-    payout_id: z.string().min(1),
-    points_redeemed: z.number().positive(),
-    peso_value_redeemed: z.number().positive(),
-    timestamp: z.instanceof(Timestamp),
+export const RequestPayoutSchema = z.object({
+    points_id: z.string().min(1),
+    points_to_redeem: z.number().positive(),
+    // I don't know pang pa ready lang for other banks and qr??
+    destination_account: z.union([z.number(), z.string().min(1)]),
 });
-
-export type PayoutHistoryType = z.infer<typeof PayoutHistorySchema>;
