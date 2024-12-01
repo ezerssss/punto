@@ -1,4 +1,5 @@
 import { Timestamp } from 'firebase/firestore';
+import parsePhoneNumberFromString from 'libphonenumber-js';
 import { z } from 'zod';
 
 export const BusinessCategoryEnum = z.enum([
@@ -24,6 +25,22 @@ export const BusinessUserDataSchema = z.object({
     email: z.string().email(),
     business_name: z.string().min(1),
     business_category: BusinessCategoryEnum,
+    phone_number: z.string().transform((arg, ctx) => {
+        const phone = parsePhoneNumberFromString(arg, {
+            defaultCountry: 'PH',
+            extract: false,
+        });
+
+        if (phone?.isValid()) {
+            return phone.number;
+        }
+
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: 'Invalid phone number',
+        });
+        return z.NEVER;
+    }),
     photo_url: z.string().url().nullable(),
     minimum_points_payout: z.number().nonnegative(),
     points_per_peso: z.number().nonnegative(),
