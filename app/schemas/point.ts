@@ -17,7 +17,10 @@ export type PointType = z.infer<typeof PointSchema>;
 
 export const EarnHistorySchema = z.object({
     transaction_id: z.string().min(1),
+    customer_id: z.string().min(1),
+    business_id: z.string().min(1),
     points_earned: z.number().positive(),
+    total_price: z.number().nonnegative(),
     timestamp: z.instanceof(Timestamp),
 });
 
