@@ -7,9 +7,11 @@ export const EmployeeUserDataSchema = z.object({
     employee_name: z.string().min(1),
     username: z.string().min(1),
     password: z.string().min(6), // hashed using bcrypt
+    // This is for the points system for the employee
+    current_points: z.number().nonnegative(), // points without considering pending stuff
+    available_points: z.number().nonnegative(), // points considering pending stuff
     date_created: z.instanceof(Timestamp),
 });
-
 export type EmployeeUserDataType = z.infer<typeof EmployeeUserDataSchema>;
 
 export const EmployeePublicDataSchema = z.object({
