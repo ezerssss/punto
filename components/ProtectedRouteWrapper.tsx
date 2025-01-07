@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react';
 import { PuffLoader } from 'react-spinners';
 import auth from '@/app/firebase/auth';
 import { usePathname, useRouter } from 'next/navigation';
-import { AppSidebar } from './AppSidebar';
-import { SidebarTrigger, SidebarProvider } from './ui/sidebar';
 
 interface PropsInterface {
     children: React.ReactNode;
@@ -47,13 +45,9 @@ function ProtectedRouteWrapper(props: PropsInterface) {
     }, [delay]);
 
     const authCheck = isAuthenticated ? (
-        <SidebarProvider>
-            <AppSidebar />
-            <SidebarTrigger />
-            <div className="w-full px-5 py-10 md:px-10 lg:px-16 xl:px-20">
-                {children}
-            </div>
-        </SidebarProvider>
+        <div className="w-full px-5 py-10 md:px-10 lg:px-16 xl:px-20">
+            {children}
+        </div>
     ) : (
         <></>
     );

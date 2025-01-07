@@ -1,10 +1,32 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
-import { Sora, Nunito } from 'next/font/google';
+import localFont from 'next/font/local';
 
-const sora = Sora({ subsets: ['latin'] });
-const nunito = Nunito({ subsets: ['latin'] });
+const productSans = localFont({
+    src: [
+        {
+            path: './fonts/Product Sans Regular.ttf',
+            weight: '400',
+            style: 'normal',
+        },
+        {
+            path: './fonts/Product Sans Italic.ttf',
+            weight: '400',
+            style: 'italic',
+        },
+        {
+            path: './fonts/Product Sans Bold.ttf',
+            weight: '700',
+            style: 'bold',
+        },
+        {
+            path: './fonts/Product Sans Bold Italic.ttf',
+            weight: '700',
+            style: 'italic',
+        },
+    ],
+});
 
 export const metadata: Metadata = {
     title: 'Punto',
@@ -17,8 +39,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={`${sora.className} ${nunito.className}`}>
+        <html lang="en" className={productSans.className}>
+            <body className="relative flex min-h-svh flex-col bg-[#F8F8F8]">
                 {children}
                 <Toaster richColors />
             </body>

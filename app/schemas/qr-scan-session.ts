@@ -15,3 +15,11 @@ export const ScanQRCodeRequestSchema = z.object({
 });
 
 export type ScanQRCodeRequestType = z.infer<typeof ScanQRCodeRequestSchema>;
+
+export const ResetQRSessionRequestSchema = z.object({
+    customer_id: z.string().min(1),
+});
+
+export type ResetQRSessionRequestType = z.infer<
+    typeof ResetQRSessionRequestSchema
+>;

@@ -25,3 +25,13 @@ export const EarnHistorySchema = z.object({
 });
 
 export type EarnHistoryType = z.infer<typeof EarnHistorySchema>;
+
+export const EmployeeEarnHistorySchema = z.object({
+    transaction_id: z.string().min(1),
+    customer_id: z.string().min(1),
+    points_earned: z.number().positive(),
+    is_customer_returning: z.boolean(),
+    timestamp: z.instanceof(Timestamp),
+});
+
+export type EmployeeEarnHistoryType = z.infer<typeof EmployeeEarnHistorySchema>;

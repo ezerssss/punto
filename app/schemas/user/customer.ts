@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { QRScanSessionSchema } from '../qr-scan-session';
-import parsePhoneNumberFromString from 'libphonenumber-js';
 import { Timestamp } from 'firebase/firestore';
+import { PhoneNumberSchema } from '../phone';
 
 export const CustomerUserDataSchema = z.object({
     customer_id: z.string().min(1),
@@ -9,22 +9,7 @@ export const CustomerUserDataSchema = z.object({
     email: z.string().email(),
     full_name: z.string().min(1),
     age: z.number().positive(),
-    phone_number: z.string().transform((arg, ctx) => {
-        const phone = parsePhoneNumberFromString(arg, {
-            defaultCountry: 'PH',
-            extract: false,
-        });
-
-        if (phone?.isValid()) {
-            return phone.number;
-        }
-
-        ctx.addIssue({
-            code: z.ZodIssueCode.custom,
-            message: 'Invalid phone number',
-        });
-        return z.NEVER;
-    }),
+    phone_number: PhoneNumberSchema,
     photo_url: z.string().url().nullable(),
     qr_scan_session: QRScanSessionSchema.nullable(), // null if no session
     date_created: z.instanceof(Timestamp),
@@ -51,3 +36,12 @@ export const CustomerSignUpSchema = CustomerUserDataSchema.omit({
 }).extend({ password: z.string().min(6) });
 
 export type CustomerSignUpType = z.infer<typeof CustomerSignUpSchema>;
+
+export const CustomerCompleteRegistrationSchema = CustomerSignUpSchema.omit({
+    email: true,
+    password: true,
+});
+
+export type CustomerCompleteRegistrationType = z.infer<
+    typeof CustomerCompleteRegistrationSchema
+>;

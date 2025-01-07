@@ -15,6 +15,8 @@ export const ValidReceiptSchema = z.object({
     total_price: z.number().nonnegative(),
 });
 
+export type ValidReceiptType = z.infer<typeof ValidReceiptSchema>;
+
 export const InvalidReceiptSchema = z.object({
     valid_receipt: z.literal(false),
     reason: z.string().min(1),

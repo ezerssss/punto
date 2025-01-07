@@ -12,6 +12,7 @@ export const EmployeeUserDataSchema = z.object({
     available_points: z.number().nonnegative(), // points considering pending stuff
     date_created: z.instanceof(Timestamp),
 });
+
 export type EmployeeUserDataType = z.infer<typeof EmployeeUserDataSchema>;
 
 export const EmployeePublicDataSchema = z.object({
