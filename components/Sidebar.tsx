@@ -5,7 +5,7 @@ import React from 'react';
 
 function Sidebar() {
     return (
-        <div className="flex h-screen w-fit flex-col justify-between bg-[#1C2434] px-4 py-6">
+        <div className="sticky left-0 top-0 flex h-screen w-fit flex-col justify-between bg-[#1C2434] px-4 py-6">
             <div>
                 <Image
                     alt="Punto"
