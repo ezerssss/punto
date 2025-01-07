@@ -19,7 +19,7 @@ function Transactions() {
     return (
         <div>
             <h2 className="text-2xl">Transactions</h2>
-            <div className="mt-5">
+            <div className="mt-5 space-y-4">
                 {isLoading && (
                     <div className="flex flex-col items-center">
                         <PuffLoader />

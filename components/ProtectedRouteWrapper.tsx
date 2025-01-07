@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { PuffLoader } from 'react-spinners';
 import auth from '@/app/firebase/auth';
 import { usePathname, useRouter } from 'next/navigation';
+import Sidebar from './Sidebar';
+import Topbar from './Topbar';
 
 interface PropsInterface {
     children: React.ReactNode;
@@ -42,11 +44,16 @@ function ProtectedRouteWrapper(props: PropsInterface) {
 
             setIsLoading(false);
         });
-    }, [delay]);
+    }, [delay, pathname, router]);
 
     const authCheck = isAuthenticated ? (
-        <div className="w-full px-5 py-10 md:px-10 lg:px-16 xl:px-20">
-            {children}
+        <div className="flex w-full">
+            <Sidebar />
+            <aside className="flex-1">
+                <Topbar />
+
+                <div className="p-10">{children}</div>
+            </aside>
         </div>
     ) : (
         <></>

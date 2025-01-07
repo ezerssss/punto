@@ -40,7 +40,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className={productSans.className}>
-            <body className="relative flex min-h-svh flex-col bg-[#F8F8F8]">
+            <body className="relative flex min-h-svh flex-col bg-[#F1F5F9]">
                 {children}
                 <Toaster richColors />
             </body>

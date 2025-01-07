@@ -6,7 +6,7 @@ import { toastError } from '@/lib/utils';
 import { TransactionType } from '../schemas/transaction';
 
 function useTransactions() {
-    const user = useUser();
+    const { user } = useUser();
     const [isLoading, setIsLoading] = useState(true);
     const [isEmpty, setIsEmpty] = useState(true);
     const [transactions, setTransactions] = useState<TransactionType[]>([]);
