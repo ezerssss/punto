@@ -1,4 +1,4 @@
-import { onSnapshot, query, where } from 'firebase/firestore';
+import { onSnapshot, orderBy, query, where } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { TRANSACTIONS_COLLECTION_REF } from '../constants/firebase/collections';
 import useUser from './useUser';
@@ -18,7 +18,8 @@ function useTransactions() {
 
         const transactionsQuery = query(
             TRANSACTIONS_COLLECTION_REF,
-            where('business_id', '==', user.uid)
+            where('business_id', '==', user.uid),
+            orderBy('timestamp', 'desc')
         );
 
         const unsub = onSnapshot(transactionsQuery, (snapshot) => {
