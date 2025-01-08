@@ -8,7 +8,7 @@ function Topbar() {
     const { business } = useUser();
 
     return (
-        <div className="flex h-14 items-center justify-end gap-1 bg-white px-8 py-3">
+        <div className="flex h-14 items-center justify-end gap-2 bg-white px-8 py-3">
             {business && (
                 <>
                     <p className="text-[#212B36]">{business.business_name}</p>
@@ -16,10 +16,10 @@ function Topbar() {
                         unoptimized
                         alt="business"
                         src={business?.photo_url ?? ''}
-                        width={56}
-                        height={56}
+                        width={40}
+                        height={40}
                         objectFit="cover"
-                        className="aspect-square h-full rounded-full object-cover"
+                        className="aspect-square rounded-full border-[1px] object-cover"
                     />
                 </>
             )}
