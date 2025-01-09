@@ -114,26 +114,19 @@ export function getNumberOfCustomersFromTransactions(
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function fieldSorter(fields: string[]): (a: any, b: any) => number {
-    const dir: number[] = [];
-    const l = fields.length;
-    fields = fields.map(function (field, index) {
-        if (field.startsWith('-')) {
-            dir[index] = -1;
-            field = field.substring(1);
-        } else {
-            dir[index] = 1;
-        }
-        return field;
-    });
+export function fieldSorter(field: string): (a: any, b: any) => number {
+    let dir: number = 1;
+    if (field.startsWith('-')) {
+        dir = -1;
+        field = field.substring(1);
+    } else {
+        dir = 1;
+    }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return function (a: any, b: any) {
-        for (let i = 0; i < l; i++) {
-            const field = fields[i];
-            if (a[field] > b[field]) return dir[i];
-            if (a[field] < b[field]) return -dir[i];
-        }
+        if (a[field] > b[field]) return dir;
+        if (a[field] < b[field]) return -dir;
 
         return 0;
     };
