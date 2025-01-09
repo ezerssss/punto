@@ -1,5 +1,7 @@
 import { Timestamp } from 'firebase/firestore';
 import { z } from 'zod';
+import { BusinessPublicDataSchema } from './user/business';
+import { CustomerPublicDataSchema } from './user/customer';
 
 export const PayoutStatusEnum = z.enum(['Pending', 'Completed', 'Failed']);
 
@@ -8,6 +10,8 @@ export const PayoutSchema = z.object({
     points_id: z.string().min(1),
     customer_id: z.string().min(1),
     business_id: z.string().min(1),
+    business: BusinessPublicDataSchema,
+    customer: CustomerPublicDataSchema,
     points_to_redeem: z.number().positive(),
     status: PayoutStatusEnum,
     // I don't know pang pa ready lang for other banks and qr??
@@ -20,6 +24,8 @@ export type PayoutType = z.infer<typeof PayoutSchema>;
 export const EmployeePayoutSchema = PayoutSchema.omit({
     points_id: true,
     customer_id: true,
+    business: true,
+    customer: true,
 }).extend({
     employee_id: z.string().min(1),
 });

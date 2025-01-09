@@ -64,3 +64,23 @@
         @apply bg-background text-foreground;
     }
 }
+
+/* React Date Range css */
+
+div.rdrDateRangePickerWrapper {
+    font-family: productSans, 'productSans Fallback', sans-serif !important;
+}
+
+span.rdrEndEdge,
+span.rdrInRange,
+span.rdrStartEdge,
+button.rdrStaticRangeSelected,
+span.rdrDayStartPreview,
+span.rdrDayInPreview,
+span.rdrDayEndPreview {
+    color: #1c2434 !important;
+}
+
+span.rdrDateDisplayItemActive {
+    border-color: #1c2434 !important;
+}

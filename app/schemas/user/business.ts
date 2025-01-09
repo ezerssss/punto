@@ -48,3 +48,14 @@ export const BusinessUserSignUpSchema = BusinessUserDataSchema.omit({
 }).extend({ password: z.string().min(6) });
 
 export type BusinessUserSignUpType = z.infer<typeof BusinessUserSignUpSchema>;
+
+export const BusinessCustomerDataSchema = z.object({
+    customer_id: z.string().min(1),
+    employee_id: z.string().min(1),
+    business_id: z.string().min(1),
+    date_joined: z.instanceof(Timestamp),
+});
+
+export type BusinessCustomerDataType = z.infer<
+    typeof BusinessCustomerDataSchema
+>;
