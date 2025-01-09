@@ -95,7 +95,10 @@ export function categorizeDates(date1?: Date, date2?: Date): string {
 }
 
 export function numberWithCommas(number: number): string {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return number
+        .toFixed(2)
+        .replace(/[.,]00$/, '')
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 export function getNumberOfCustomersFromTransactions(

@@ -47,7 +47,10 @@ function SummaryStats(props: PropsInterface) {
                 title="New Customers"
                 content={newBusinessCustomers.length}
             />
-            <StatBox title="Points Given" content={pointsGiven} />
+            <StatBox
+                title="Points Given"
+                content={pointsGiven.toFixed(2).replace(/[.,]00$/, '')}
+            />
             <StatBox
                 title="Rewards Cashed Out"
                 content={`₱${numberWithCommas(rewardsCashedOut)}`}
