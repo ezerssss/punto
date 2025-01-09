@@ -16,7 +16,6 @@ import {
     isEqual,
 } from 'date-fns';
 import { TransactionType } from '@/app/schemas/transaction';
-import { PayoutType } from '@/app/schemas/payout';
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -106,16 +105,6 @@ export function getNumberOfCustomersFromTransactions(
 
     for (const transaction of transactions) {
         customerIdSet.add(transaction.customer_id);
-    }
-
-    return customerIdSet.size;
-}
-
-export function getNumberOfCustomersFromPayouts(payouts: PayoutType[]): number {
-    const customerIdSet = new Set();
-
-    for (const payout of payouts) {
-        customerIdSet.add(payout.customer_id);
     }
 
     return customerIdSet.size;

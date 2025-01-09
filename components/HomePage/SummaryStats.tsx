@@ -2,7 +2,6 @@ import React from 'react';
 import StatBox from './StatBox';
 import { TransactionType } from '@/app/schemas/transaction';
 import {
-    getNumberOfCustomersFromPayouts,
     getNumberOfCustomersFromTransactions,
     numberWithCommas,
 } from '@/lib/utils';
@@ -36,7 +35,7 @@ function SummaryStats(props: PropsInterface) {
     );
     const averageRedemptionRate =
         totalCustomers > 0
-            ? (getNumberOfCustomersFromPayouts(payouts) / totalCustomers) * 100 // Number of customers that redeemed / Total customers
+            ? (rewardsCashedOut / pointsGiven) * 100 // Number of customers that redeemed / Total customers
             : 0;
 
     return (
