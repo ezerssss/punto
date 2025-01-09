@@ -23,6 +23,7 @@ function PayoutsTable(props: PropsInterface) {
     }
 
     const divRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
     const [isSearching, setIsSearching] = useState(false);
     const [queryString, setQueryString] = useState('');
 
@@ -75,10 +76,14 @@ function PayoutsTable(props: PropsInterface) {
                         )}
                         placeholder="Search"
                         onChange={(e) => setQueryString(e.target.value)}
+                        ref={inputRef}
                     />
                     <button
                         className="absolute right-2 text-gray-400"
-                        onClick={() => setIsSearching(true)}
+                        onClick={() => {
+                            setIsSearching(true);
+                            inputRef.current?.focus();
+                        }}
                     >
                         <SearchIcon size={15} />
                     </button>
