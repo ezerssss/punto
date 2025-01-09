@@ -25,6 +25,7 @@ function PurchasesTable(props: PropsInterface) {
             {transactions.map(
                 ({
                     transaction_id,
+                    receipt_photo_url,
                     customer,
                     timestamp,
                     total_price,
@@ -36,7 +37,13 @@ function PurchasesTable(props: PropsInterface) {
                     >
                         <p>{customer.full_name}</p>
                         <p>{format(timestamp.toDate(), 'MMM dd, yyyy')}</p>
-                        <p className="text-[#10B981]">₱{total_price}</p>
+                        <a
+                            className="text-[#10B981] underline"
+                            href={receipt_photo_url}
+                            target="_blank"
+                        >
+                            ₱{total_price}
+                        </a>
                         <p>{points}</p>
                     </div>
                 )
