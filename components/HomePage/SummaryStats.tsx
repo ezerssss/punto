@@ -35,8 +35,8 @@ function SummaryStats(props: PropsInterface) {
         0
     );
     const averageRedemptionRate =
-        payouts.length > 0
-            ? (totalCustomers / getNumberOfCustomersFromPayouts(payouts)) * 100 // Total customers / Number of customers that redeemed
+        totalCustomers > 0
+            ? (getNumberOfCustomersFromPayouts(payouts) / totalCustomers) * 100 // Number of customers that redeemed / Total customers
             : 0;
 
     return (
