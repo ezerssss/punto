@@ -29,18 +29,21 @@ function PayoutsTable(props: PropsInterface) {
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
-            if (!divRef.current) {
+            if (!divRef.current || !inputRef.current) {
                 return;
             }
 
-            if (!divRef.current.contains(event.target as HTMLElement)) {
+            if (
+                !divRef.current.contains(event.target as HTMLElement) &&
+                !inputRef.current.value
+            ) {
                 setIsSearching(false);
             }
         }
 
         addEventListener('click', handleClickOutside);
         return () => removeEventListener('click', handleClickOutside);
-    }, [divRef]);
+    }, [divRef, inputRef]);
 
     const escapedQuery = queryString.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const pattern = `.*${escapedQuery.split('').join('.*')}.*`;
