@@ -54,7 +54,7 @@ function SummaryStats(props: PropsInterface) {
             />
             <StatBox
                 title="Avg. Redemption Rate"
-                content={`${averageRedemptionRate}%`}
+                content={`${averageRedemptionRate.toFixed(2).replace(/[.,]00$/, '')}%`}
             />
         </section>
     );
