@@ -34,9 +34,7 @@ function SummaryStats(props: PropsInterface) {
         0
     );
     const averageRedemptionRate =
-        totalCustomers > 0
-            ? (rewardsCashedOut / pointsGiven) * 100 // Number of customers that redeemed / Total customers
-            : 0;
+        totalCustomers > 0 ? (rewardsCashedOut / pointsGiven) * 100 : 0;
 
     return (
         <section className="grid grid-cols-2 grid-rows-3 gap-4 lg:grid-cols-3 lg:grid-rows-2 xl:grid-cols-6 xl:grid-rows-1">
