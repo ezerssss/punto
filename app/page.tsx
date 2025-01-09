@@ -38,7 +38,7 @@ function Home() {
                     newBusinessCustomers={newBusinessCustomers}
                 />
 
-                <section className="my-10 grid grid-cols-1 grid-rows-2 gap-4 lg:grid-cols-2 lg:grid-rows-1">
+                <section className="my-10 grid grid-cols-1 grid-rows-2 gap-4 xl:grid-cols-2 xl:grid-rows-1">
                     <PurchasesTable transactions={transactions} />
                     <PayoutsTable payouts={payouts} />
                 </section>
