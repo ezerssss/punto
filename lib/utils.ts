@@ -125,8 +125,12 @@ export function fieldSorter(field: string): (a: any, b: any) => number {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return function (a: any, b: any) {
-        if (a[field] > b[field]) return dir;
-        if (a[field] < b[field]) return -dir;
+        if (typeof a[field] === 'string') {
+            return a[field].localeCompare(b[field]) * dir;
+        } else {
+            if (a[field] > b[field]) return dir;
+            if (a[field] < b[field]) return -dir;
+        }
 
         return 0;
     };
