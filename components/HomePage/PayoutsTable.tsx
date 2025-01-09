@@ -12,10 +12,10 @@ function PayoutsTable(props: PropsInterface) {
     const { payouts } = props;
 
     const [sorts, setSorts] = useState<string[]>([
-        '-timestamp',
         'points_redeemed',
         'points_redeemed',
         'customer.full_name',
+        '-timestamp',
     ]);
 
     const sortedPayouts = useMemo(
@@ -45,10 +45,21 @@ function PayoutsTable(props: PropsInterface) {
             <header className="grid grid-cols-4 border-t-[1px] border-[#E2E8F0] py-5 text-sm text-[#64748B]">
                 <button
                     className="flex items-center justify-start gap-1"
-                    onClick={() => handleToggle(3)}
+                    onClick={() => handleToggle(2)}
                 >
                     <p>Customer</p>
-                    {sorts[3] === 'customer.full_name' ? (
+                    {sorts[2] === 'customer.full_name' ? (
+                        <ChevronUpIcon size={14} />
+                    ) : (
+                        <ChevronDownIcon size={14} />
+                    )}
+                </button>
+                <button
+                    className="flex items-center justify-start gap-1"
+                    onClick={() => handleToggle(3)}
+                >
+                    <p>Redemption Date</p>
+                    {sorts[3] === 'timestamp' ? (
                         <ChevronUpIcon size={14} />
                     ) : (
                         <ChevronDownIcon size={14} />
@@ -58,8 +69,8 @@ function PayoutsTable(props: PropsInterface) {
                     className="flex items-center justify-start gap-1"
                     onClick={() => handleToggle(0)}
                 >
-                    <p>Redemption Date</p>
-                    {sorts[0] === 'timestamp' ? (
+                    <p>Points Redeemed</p>
+                    {sorts[0] === 'points_redeemed' ? (
                         <ChevronUpIcon size={14} />
                     ) : (
                         <ChevronDownIcon size={14} />
@@ -69,19 +80,8 @@ function PayoutsTable(props: PropsInterface) {
                     className="flex items-center justify-start gap-1"
                     onClick={() => handleToggle(1)}
                 >
-                    <p>Points Redeemed</p>
-                    {sorts[1] === 'points_redeemed' ? (
-                        <ChevronUpIcon size={14} />
-                    ) : (
-                        <ChevronDownIcon size={14} />
-                    )}
-                </button>
-                <button
-                    className="flex items-center justify-start gap-1"
-                    onClick={() => handleToggle(2)}
-                >
                     <p>Redemption Value</p>
-                    {sorts[2] === 'points_redeemed' ? (
+                    {sorts[1] === 'points_redeemed' ? (
                         <ChevronUpIcon size={14} />
                     ) : (
                         <ChevronDownIcon size={14} />
