@@ -36,6 +36,7 @@ function ProtectedRouteWrapper(props: PropsInterface) {
                 const isBusinessAccount = !!tokens.claims.is_business_account;
 
                 if (!isBusinessAccount) {
+                    await auth.signOut();
                     router.push(`/login?backTo=${pathname}`);
                 }
 
