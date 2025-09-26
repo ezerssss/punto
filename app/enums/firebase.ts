@@ -7,4 +7,5 @@ export enum FIREBASE_COLLECTION_ENUMS {
     EARN_HISTORY_COLLECTION = 'earn_history',
     PAYOUTS_COLLECTION = 'payouts',
     EMPLOYEE_PAYOUTS_COLLECTION = 'employee_payouts',
+    SHOP_ITEMS_COLLECTION = 'shop_items',
 }

@@ -1,14 +1,17 @@
 'use client';
 
 import auth from '@/app/firebase/auth';
-import { LayoutGridIcon, LogOutIcon } from 'lucide-react';
+import { LayoutGridIcon, LogOutIcon, StoreIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-const urls = [{ url: '/', icon: <LayoutGridIcon /> }];
+const urls = [
+    { url: '/', icon: <LayoutGridIcon /> },
+    { url: '/shop', icon: <StoreIcon /> },
+];
 
 function Sidebar() {
     const pathname = usePathname();
