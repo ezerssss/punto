@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Punto
 
-## Getting Started
+Loyalty reward program for SMEs without needing to integrate with a POS.
 
-First, run the development server:
+🏷️ **Status:** Archived \
+🤖 **Vibe Coded:** No
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What it does
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Customers scan your receipts, the employees verify the transaction, and customers gains points based on their total spending.
+- PWAs for both customers and employees with TOTP mechanisms to prevent misuse and abuse.
+- Portal for business owners to track rewards and orders.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Demo / Screenshot
 
-## Learn More
+<!-- Add if you can. If the project can't run anymore, just leave a note: -->
+<!-- ⚠️ Can't currently run this to generate a fresh screenshot — README text stands in for now. -->
 
-To learn more about Next.js, take a look at the following resources:
+<img width="6640" height="4080" alt="app_2" src="https://github.com/user-attachments/assets/82663e9e-fc2b-4a5e-a14c-70fd2c90334f" />
+<img width="6640" height="4080" alt="app_3" src="https://github.com/user-attachments/assets/681d330b-8922-4ebf-9838-3c038d542875" />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Typescript · Next.js · Express · Firebase
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- I had to juggle around 4 different repositories (Portal, Customer PWA, Employee PWA, and the Server), so making one small change meant creating a lot of different changes to different repos which was a pain in the ass. 
+- Next time I'll probably look into a monorepo so changing schemas isn't as painful as what I had to do here.
+- Reached out to local cafes and restaurants to try and have them integrate Punto into their business.
