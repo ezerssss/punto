@@ -1,6 +1,6 @@
 # Punto
 
-Loyalty reward program for SMEs without needing to integrate with a POS.
+A loyalty program platform with a progressive mobile app and business dashboard aimed at increasing customer retention for Cebuano businesses. Customers scan receipts for rewards, employees verify transactions securely, and business owners access insights into customer behavior and program effectiveness.
 
 🏷️ **Status:** Archived \
 🤖 **Vibe Coded:** No
